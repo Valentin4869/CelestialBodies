@@ -2,11 +2,6 @@
 #include"Primitives.h"
 
 
-
-
-
-
-
 Object3d::Object3d(char* path){
 	Object3d();
 	LoadOBJ(path);
@@ -75,8 +70,6 @@ void Object3d::LoadOBJ(char* path){
 	int vi=0, i1=0, i2=0;
 	int vni=0;
 
-	//for(int c=0; Buffer[c]!='\0'; c++)
-		//cout<<Buffer[c];
 
 	nVertex=CountStr(Buffer,vc);
 	nFace=CountStr(Buffer,fc);
@@ -231,7 +224,7 @@ void Object3d::LoadOBJ(char* path){
 									//	delete[] substr[ic];
 								//	cout<<face[i].iVertexNormal[c]<<", ";
 								}
-			//cout<<"\n";
+			
 			
 			
 		}
