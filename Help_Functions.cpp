@@ -43,16 +43,6 @@ void DrawVector3d(Vector3d& v, real x, real y, real z)
 void DrawObject3d(Object3d* obj)
 {
 	
-	//glBegin(GL_POLYGON);
-	//glColor3f(1,1,1);
-	//
-	//for(int i=0; i<obj->nVertex; i++)
-	//{glVertex3f(obj->vertex[i].x, obj->vertex[i].y, obj->vertex[i].z); 
-	////glVertex3f(0,0,0);
-	//
-	//}
-
-	//glEnd();
 	
 	for(int i=0; i<obj->nFace; i++)
 	{
@@ -145,26 +135,7 @@ Y=wy;
 }
 
 void RenderText(Text3d txt){
-	goto t;
-	//int length=strlen(txt.text);
-	//float xAlignment=0, yAlignment=0;
-	//short nNewlines=0;
-
-	//SetColor(txt.color);
-
-	//for(int i=0; i<length; i++)
-	//{
-	//	
-	//	if(txt.text[i]=='\n')
-	//	{xAlignment=0; yAlignment++; continue;}
-
-	//		//glRasterPos3f(txt.position.x+ i*xAlignment, txt.position.y- nNewlines*yAlignment, txt.position.z);
-	//	glRasterPos3f(txt.x+ xAlignment, txt.y- yAlignment, d);
-	//	//glRasterPos2f(0+i, 5);
-	//		glutBitmapCharacter(GLUT_BITMAP_8_BY_13,txt.text[i]);
-	//	xAlignment++;
-	//}
-t:
+	
 	 glDisable(GL_DEPTH_TEST);
 	 glDisable(GL_LIGHTING);
      //Temporarily set up the view in orthographic projection.
@@ -206,17 +177,7 @@ t:
 
 void DrawParticle3d(Particle3d &p)
 {
-	////p.acceleration.y=-5;
-	
-
-	
 		
-	//p.position.z-=p.velocity.z;
-
-
-	//p.velocity.y+=-0.01;
-	//p.position.y+=p.velocity.y;
-	
 	glPushMatrix();
 	//glLoadIdentity();
 	glTranslatef(p.position.x, p.position.y, p.position.z);
@@ -257,7 +218,7 @@ void InitP3d(Particle3d* P, int size, P3d_preset p3d)
 	case p3d_point_particles:
 		
 		for(int i=0; i<size; i++)
-			P[i].radius=0.0; //could cause error
+			P[i].radius=0.0;
 			
 		break;
 	
@@ -329,37 +290,5 @@ void CopyStates(State* S, Particle3d* P, int size){
 	}
 }
 
-
-
-
-//Vector3d acceleration(State ip, vector<Particle3d> P)
-//{
-//	
-//	Vector3d ACCELERATION;
-//	Vector3d tempAcceleration;
-//	for(int i=0; i<PARTICLE_C; i++)
-//	{
-//
-//		if(ip.i==i) continue;
-//		
-//		real d=sqrt( (ip.Position.x-P[i].position.x)*(ip.Position.x-P[i].position.x) +
-//				 (ip.Position.y-P[i].position.y)*(ip.Position.y-P[i].position.y) +
-//				 (ip.Position.z-P[i].position.z)*(ip.Position.z-P[i].position.z)
-//			   );
-//		
-//	real wk=1;
-//	real f=-6.67384*0.00000180*wk*ip.mass*P[i].mass/(d*d);
-//	
-//	tempAcceleration.Set((ip.Position.x-P[i].position.x)*f/d/ip.mass, (ip.Position.y-P[i].position.y)*f/d/ip.mass,
-//		(ip.Position.z-P[i].position.z)*f/d/ip.mass);
-//	ACCELERATION+=tempAcceleration;//accumulate accerleations
-//
-//
-//	}
-//	
-//	
-//	return ACCELERATION;
-//
-//}
 
 
