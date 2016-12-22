@@ -139,11 +139,6 @@ void UniversalGravitation(int ip, Particle3d* p, short p_c, State& fstate , floa
 
 	dPOSITION= 1.0f/6.0f*(k1.dPosition + 2.0f*(k2.dPosition + k3.dPosition) + k4.dPosition);
 	dVELOCITY = 1.0f/6.0f*(k1.dVelocity + 2.0f*(k2.dVelocity + k3.dVelocity) + k4.dVelocity);
-	
-	
-	/*P[ip].position += dPOSITION*dt;
-	P[ip].velocity += dVELOCITY*dt;
-	P[ip].acceleration = dVELOCITY;*/
 
 	
 	fstate.Position += dPOSITION*dt; 
@@ -250,22 +245,6 @@ void dImpenetrationResolution(int i, int j, Particle3d *p, State *ps)
 								
 						Vector3d mv=ContactNormal;
 						mv.Normalize();
-						
-						/*if(tv<=0)
-							ps[i].Position+= mv*(err_l/2.0),
-							ps[j].Position+= mv*(-err_l/2.0);	
-						else
-						{
-							mv  *=(-err_l / tv);
-
-							if(vm1<=0)	
-							ps[j].Position+= mv*vm2;
-							
-							else if(vm2<=0)
-							ps[i].Position+= mv*(-vm1);
-
-							
-						}*/
 						
 						mv  *=(-err_l / (tv));
 							ps[i].Position+= mv*(1/(-p[i].mass+vm1)),
