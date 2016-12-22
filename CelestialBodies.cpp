@@ -55,18 +55,16 @@ Vector3d acceleration(State ip, vector<Particle3d> P, float t)
 		
 	real wk=10.0;
 	real f=-6.67384*0.000000180*wk*ip.mass*P[i].mass/(d*d);
+		
 	//cout<<"Distance: "<<d<<endl;
 	//cout<<"F: "<<f<<"= "<<-6.67384*0.00000000010<<" * "<<ip.mass<<" * "<<P[i].mass<<"/("<<d*d<<")\n";
 	/*if(print)
 	{cout<<"DISTANCE: "<<d<<endl;
 	cout<<"FORCE: m1: "<<m1<<", m2: "<<m2<<"----> "<<f<<endl;}*/
-	//real angle=asin((Position1.y-Position2.y)/d);
-	//real angle2=asin((Position1.z-Position2.z)/d);
-	//cout<<"angle "<<angle*180/3.141592<<endl;	
-	//cout<<"angle2 "<<angle2*180/3.141592<<endl;	
+		
 
 
-	//Vector3d ACCELERATION(cos(angle)*f/m1, sin(angle)*f/m1, sin(angle2)*f/m1);
+	
 	
 	tempAcceleration.Set((ip.Position.x-P[i].position.x)*f/d/ip.mass, (ip.Position.y-P[i].position.y)*f/d/ip.mass,
 		(ip.Position.z-P[i].position.z)*f/d/ip.mass);
@@ -78,16 +76,11 @@ Vector3d acceleration(State ip, vector<Particle3d> P, float t)
 	cout<<"aY: "<<(Position1.y-Position2.y)*f/d/m1<<endl;
 	cout<<"aZ: "<<(Position1.z-Position2.z)*f/d/m1<<"\n";
 	}*/
-	//if(angle2*180/3.141592<0)
-		//ACCELERATION.x=-cos(angle2)*f/m1;
-
-//particles[0].acceleration=ACCELERATION;
+		
+	
 
 	}
-	//if(Position1.x<Position2.x)
-		//ACCELERATION.x*=-1;
-	//if(Position1.z<Position2.z)
-	//ACCELERATION.z*=-1;
+	
 	print=false;
 
 	return ACCELERATION;
@@ -199,17 +192,17 @@ void InitGL(int* argc, char** argv)
     glDepthFunc			(GL_LEQUAL);								
 	//glEnable			(GL_BLEND);
 	//glBlendFunc			(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	//glHint				(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+	//glHint			(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
-  //
+ 
 
  // glutFullScreen      ( );  
 
-	//glutMotionFunc(motion);
-	//glutMouseFunc(mouse);
-	//glutPassiveMotionFunc(passive);
+//glutMotionFunc(motion);
+//glutMouseFunc(mouse);
+//glutPassiveMotionFunc(passive);
   glutMotionFunc(motion);
-	glutMouseFunc(mouse);
+glutMouseFunc(mouse);
   glutDisplayFunc     (Render);
   glutReshapeFunc     ( reshape );
   glutSpecialFunc    ( SpecialKey );
@@ -234,34 +227,7 @@ int _tmain(int argc, char* argv[])
    Vector3d v1(4,4,4);
    Vector3d v2(2,2,2);
 
-   
-  // Particle3d t;
-   //cout<<t.position.x<<endl;
-   //system("pause");
   
-   
-  // p=(char*)"str564ing";
-  // t=p;
-   //p++;
-   //delete[] p;
-   //cout<<p<<endl;
-
-   /*char arr[3], *p1, *p2;
-   arr[0]='0';
-   arr[1]='1';
-   arr[2]='\0';
-
-   p1=arr;
-   p2=++p1;
-   p2;
-
-   cout<<"p1: "<<p1<<", P2: "<<p2<<endl;*/
- /*char *p=new char[9];
- p=NewStr("yhj765ll");
-
-  
-	p+=CleanNumeric(p);
- cout<<p<<endl;*/
    cout<<"x: "<<v1.x<<", y: "<<v1.y<<", z: "<<v1.z<<endl;
    cout<<"|v1|= "<<v1.Magnitude()<<endl;
    v1.Normalize();
@@ -280,74 +246,7 @@ int _tmain(int argc, char* argv[])
 	InitP3d(point_particles.data(),POINT_PARTICLE_C,p3d_id);
 
 	InitP3d(particles.data(),PARTICLE_C,p3d_random_m);
-	//InitP3d(particles.data(),PARTICLE_C,p3d_random_v);
-	//InitP3d(point_particles.data(),POINT_PARTICLE_C,p3d_random_v);
-		//InitP3d(point_particles.data(),POINT_PARTICLE_C,p3d_random_m);
-
-	/*for(int i=0; i<POINT_PARTICLE_C; i++)
-		point_particles[i].velocity*=15;
-
-	Vector3d vvv;
-	vvv.Set(POINT_PARTICLE_C,POINT_PARTICLE_C,POINT_PARTICLE_C);
-	for(int i=0; i<POINT_PARTICLE_C; i++)
-		point_particles[i].mass/=200;*/
 	
-	
-	
-
-	
-
-	//factor: 10^20
-	//velocities km/s
-
-	
-
-	//int ifac=-21;
-	//float fac=pow(gconst,ifac);
-
-	//
-	//fac=pow(10.0, -6); //distance scale
-	//ifac=3.0*log10(fac);
-	//deltat=.01;
-	//cut=50;
-
-	//particles[0].mass= 0.07342*pow(10.0, 4+ifac );
-	//particles[0].position.Set(fac*(1.521*pow(10.0, 8)+ 405400), 0, 0);
-	//particles[0].velocity.Set(0,0,fac*30.5305076);
-
-	//particles[1].mass=5.976*pow(10.0, 4+ifac );
-	//particles[1].position.Set(fac*1.521*pow(10.0, 8), 0, 0);
-	//particles[1].velocity.Set(0,0,fac*29.990);
-	//
-	//particles[2].mass=1.98855*pow(10.0, 10+ifac);
-	//particles[2].position.Set(0,0,fac*0);
-	//particles[2].velocity.Set(0,0,0);
-
-	//particles[3].mass=1.98855*pow(10.0, 1+ifac);
-	//particles[3].position.Set(0,0,-200000);
-	//particles[3].velocity.Set(0,0,-10000);
-
-
-	//30 Arietis
-	//Aa
-	//particles[0].mass= 2.60500*pow(10.0, 10+ifac );
-	//particles[0].position.Set(fac*(1.521*pow(10.0, 8)+ 405400), 0, 0);
-	//particles[0].velocity.Set(0,0,fac*254.312);
-	////Bb
-	//particles[1].mass=5.976*pow(10.0, 4+ifac );
-	//particles[1].position.Set(fac*1.521*pow(10.0, 8), 0, 0);
-	//particles[1].velocity.Set(0,0,fac*29.390);
-	//
-	//particles[2].mass=1.98855*pow(10.0, 1+ifac);
-	//particles[2].position.Set(0,0,fac*0);
-	//particles[2].velocity.Set(0,0,0);
-
-	//particles[3].mass=1.98855*pow(10.0, 1+ifac);
-	//particles[3].position.Set(0,0,-2000);
-	//particles[3].velocity.Set(0,0,0);
-
-
-
 
 
 	//test:
@@ -567,7 +466,7 @@ void Render()
 
 	 
 
-	   // gluLookAt (0.0, 0.0, 5.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+	  
 	glColor3f(0.5,0,0);
 
 	glPushMatrix();
@@ -576,84 +475,6 @@ void Render()
   glTranslatef(-shor,sheight,-sdepth);
   glRotatef(-stheta, 1, 0,0);
 	glRotatef(sphi, 0, 1, 0);
-
-	//glPushMatrix();
-	//glTranslatef(-2,0,0);
- // // glutSolidCube(2);
- //  glPopMatrix();
-
- //  glPushMatrix();
- // // DrawObject3d(&box);
- // glPopMatrix();
-
-   
-
-   /*real di=2;
-   real d=sqrt((particles[0].position.x-particles[1].position.x)*(particles[0].position.x-particles[1].position.x) +
-			  (particles[0].position.y-particles[1].position.y)*(particles[0].position.y-particles[1].position.y) +
-	  (particles[0].position.z-particles[1].position.z)*(particles[0].position.z-particles[1].position.z));
-
-	real f=6.67384*0.00000000010*10*15000000000/(d*d);*/
-
-	
-		
-	//if(d<sd)
-	//sd=d;
-	//if(f>sf)
-	//	sf=f;
-	//
-	////cout<<"-------------------------\nF : "<<f<<endl;
-	////cout<<"sF: "<<sf<<endl;
-	////cout<<"d: "<<d<<endl;
-	////cout<<"sd: "<<sd<<endl;
-
-	//real angle=asin((particles[0].position.y-particles[1].position.y)/d);
-	//real angle2= atan((particles[0].position.x-particles[1].position.x)/(particles[0].position.z-particles[1].position.z));
-	//cout<<"angle "<<angle*180/3.141592<<endl;	
-	//cout<<"angle2 "<<angle2*180/3.141592<<endl;	
-	//particles[0].acceleration.x=f*particles[0].position.x/d;
-	//particles[0].acceleration.y=f*particles[0].position.y/d;
-//particles[0].acceleration.x=cos(angle)*f;
-	//particles[0].acceleration.y=sin(angle)*f;
-	//particles[0].acceleration.z=cos(angle2)*particles[0].acceleration.x;
-
-	
-
-	
-
-	
-	/*particles[1].acceleration.x=cos(angle)*f;
-	particles[1].acceleration.y=sin(angle)*f;
-	particles[1].acceleration.z=cos(angle2)*particles[1].acceleration.x;*/
-	//cout<<"ax: "<<particles[0].acceleration.x<<endl;
-	//cout<<"ay: "<<particles[0].acceleration.y<<endl;
-	//cout<<"az: "<<particles[0].acceleration.z<<endl;
-//if(particles[0].position.x<particles[1].position.x)
-//{particles[0].acceleration.x*=-1;}
-//
-//if(particles[1].position.x<particles[0].position.x)
-//{particles[1].acceleration.x*=-1;}
-//
-////	if(particles[0].position.y<=particles[1].position.y)
-//	//particles[0].acceleration.y*=-1;
-//
-//if(particles[0].position.z<particles[1].position.z)
-//	particles[0].acceleration.z*=-1;
-//
-//	if(particles[1].position.z<particles[0].position.z)
-//	particles[1].acceleration.z*=-1;
-
-
-
-
-//particles[0].velocity.x+=particles[0].acceleration.x*fc;
-//	particles[0].velocity.y+=particles[0].acceleration.y*fc;
-//	particles[0].velocity.z+=particles[0].acceleration.z*fc;
-//
-//particles[0].position.x-=particles[0].velocity.x*fc;
-//	particles[0].position.y-=particles[0].velocity.y*fc;
-//	particles[0].position.z-=particles[0].velocity.z*fc;
-	
 	
 	float fc=0.01;
 	Vector3d vh(0,0,0);
@@ -667,8 +488,7 @@ void Render()
 	
 	for(int i=0; i<PARTICLE_C; i++)
 	{
-		//if(i==7 || i==8)
-			//continue;
+		
 		print=true;
 		vh.Set(0.0,0.0,0.0);goto here;
 		if(paused)
@@ -683,9 +503,7 @@ void Render()
 	}
 
 	here:
-	//gt+=1.0/deltat;
-	//if(int(gt)%60==0)
-	//cout<<"t: "<<gt/60<<" minutes "<<endl;
+	
 	
 	static int storefrd=0;
 	if (keypress2)gt++; // frames drawn counter
@@ -702,13 +520,10 @@ void Render()
 	
 	static int t=clock();
 
-		//for(int i=0; i<POINT_PARTICLE_C; i++)
-		//{DirectionalGravity(i,point_particles.data(),POINT_PARTICLE_C,p_p3d_states[i],1.0/15.0);}
+		
 		
 	real G=6.67384*0.00080;
-	//real G=6.67384;
-	//real G=6.67384*pow(10.0,-11);
-		//keypress2?G=6.67384*0.000000080: G=0.0;
+	
 	
 	if(keypress2)
 		for(int i=0; i<PARTICLE_C; i++)
@@ -723,14 +538,7 @@ void Render()
 		{DirectionalGravity(i,particles.data(),PARTICLE_C,p3d_states[i],1.0/deltat);}
 
 		CollisionResolution(PARTICLE_C, particles.data(), p3d_states.data());
-		//CollisionResolution_Ground(PARTICLE_C, particles.data(), p3d_states.data());
-		//CollisionResolution_Ground(PARTICLE_C, particles.data(),p3d_states.data());
-		//Point collisions with ground
-		//CollisionResolution_Ground(POINT_PARTICLE_C, point_particles.data(),p_p3d_states.data());
-			
-		//CopyStates(p_p3d_states.data(),point_particles.data(),POINT_PARTICLE_C);
 		
-		//glEnable(GL_LIGHTING);
 		
 	
 	static bool justonce=true;
@@ -740,11 +548,6 @@ void Render()
 	{storefrd+=gt; gt=0; 
 	seconds_passed=storefrd/deltat;
 	cout<<"\nSimulation frames: "<<storefrd<<endl;
-	/*cout<<"Time: "
-		<<seconds_passed/3600.0/24.0<<" days, "
-		<<seconds_passed/3600<<" hours, "
-		<<seconds_passed/60<<" minutes, "
-		<<seconds_passed<<" seconds\n";*/
 
 	cout<<"Time: "
 		<<seconds_passed/3600/24<<" days, "
@@ -773,8 +576,7 @@ CopyStates(p3d_states.data(),particles.data(),PARTICLE_C);
 		{cout<<"Collision at "<<(storefrd+gt)/deltat<<" seconds\n";justonce=false;}
 	goto skip;
 
-	//for(int i=0; i<POINT_PARTICLE_C; i++)
-	//{DrawParticle3d(point_particles[i]);}
+	
 	
  
    glPushMatrix();
@@ -844,29 +646,18 @@ skip:
 
 		for(int i=0; i<PARTICLE_C; i++)
 {
-	//glPointSize(1.80);
+	
 	glBegin(GL_POINTS);
-	//SetColor(GREEN);
+	
 	glVertex3f(positions[i][0].x, positions[i][0].y, positions[i][0].z);
 	glEnd();
 
 	glPointSize(1);
 	glBegin(GL_POINTS);
-	//SetColor(G50);
+	
 	SetColor(WHITE);
 	for(int j=1; j<positions[i].size(); j++)
-	{//if(j>= 2*positions[i].size()/3)
-	//SetColor(WHITE);
-	//else if(j>= positions[i].size()/3)
-		//SetColor(G75);
-		/*if(i==3)
-			glColor4f(float(j)/(float(positions[i].size())),0,0,float(j)/(float(positions[i].size())));
-		else if(i==4)
-			glColor4f(float(j)/(float(positions[i].size())),float(j)/(float(positions[i].size())),0,float(j)/(float(positions[i].size())));
-		else
-		glColor4f(float(j)/(float(positions[i].size())),float(j)/(float(positions[i].size())),float(j)/(float(positions[i].size())),float(j)/(float(positions[i].size())));
-	*/
-
+	{
 	glVertex3f(positions[i][j].x, positions[i][j].y, positions[i][j].z);}
 	glEnd();
 
@@ -885,17 +676,12 @@ SetColor(GREEN);
   for(int i=0; i<PARTICLE_C; i++)
   DrawVector3d(particles[i].velocity*pow(1.89,ifac*-1),particles[i].position.x,particles[i].position.y, particles[i].position.z);
 
-  // for(int i=0; i<POINT_PARTICLE_C; i++)
-  //DrawVector3d(point_particles[i].velocity*0.1,point_particles[i].position.x,point_particles[i].position.y, point_particles[i].position.z);
-
-
    
   SetColor(RED);
  for(int i=0; i<PARTICLE_C; i++)
   {DrawVector3d(particles[i].acceleration*pow(3.1,ifac*-1),particles[i].position.x,particles[i].position.y, particles[i].position.z);}
 
- //for(int i=0; i<POINT_PARTICLE_C; i++)
-	// DrawVector3d(point_particles[i].acceleration,point_particles[i].position.x,point_particles[i].position.y, point_particles[i].position.z);
+
 
  
 
@@ -985,79 +771,19 @@ glVertex3f(0,1,0);
 	float textx=-shor, texty=sheight, textz=-sdepth;
 	
 
-//glTranslatef(1,0,0);
-	//SetColor(BLUE);
-							
-							
-	
-	
-	
-
-//glBegin(GL_POINTS);
 
 	float prevy=texty, prevz=textz;
-	//	texty=prevy*cos(-stheta)-prevz*sin(-stheta);
-		//textz=prevy*sin(-stheta) +prevz*cos(-stheta);
-	//glVertex3f(textx,texty,textz);
-//glEnd();
 
-
-
-	
 
 	Text3d txt1("Hello \nMisterrr\nwherepppp");
-//	Text3d txts[PARTICLE_C];
-	
-	
-	//for(int i=0; i<PARTICLE_C; i++)
-	//{
-	//	char*p=new char;
-	//	*p=(i+48);
-	//	//str.append("3");
-	//	txts[i].text=p;
-	//}
-
-	//for(int i=0; i<PARTICLE_C; i++)
-	//{
-	//	
-	//	GetProjection(particles[i].position.x, particles[i].position.y, particles[i].position.z, txts[i].x, txts[i].y);
-	////txts[i].x-=particles[i].position.x, txts[i].y-=particles[i].position.y;
-	//RenderText(txts[i]);
-	//
-	//}
-	//	GetProjection(textx,texty,textz,txt1.x, txt1.y);
-							
-							
-	
-				//	glPopMatrix();
 
 
-	//glVertex2f(textx+3,texty+4);
-
-	
-//Text3d txt("Rotaton Matrix \nMisterrr\nwherepppp");
-//							glTranslatef(-shor,sheight,-sdepth);
-//							txt.x=textx;
-//							txt.y=txt.y*cos(-stheta)-textz*sin(-stheta);
-//							textz=txt.y*sin(-stheta) - textz*cos(-stheta);
-//					glPushMatrix();		
-//					
-//  //glRotatef(-stheta, 1, 0,0);
-//	//glRotatef(sphi, 0, 1, 0);
-//							RenderText(txt,textz-20);
-//							glPopMatrix();
-	
-	//glLoadIdentity();
-	
 	
 glPopMatrix();
 							
-	//Sleep(70);
-//while((clock()-t1)/(CLOCKS_PER_SEC/1000)<1){}
 
 tp+=0.01;
 
-//cout<<tp<<" Seconds\n";
 	glFlush();
 	glutSwapBuffers(); 
 }
