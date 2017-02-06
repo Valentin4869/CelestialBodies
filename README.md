@@ -6,6 +6,8 @@ Running the .exe demos requires freeglut.dll and glut32.dll (both included).
 
 Screenshots from the CollisionSpheres demo:
 
-![test](http://i.imgur.com/4LFhwGp.png)
+![test2](http://i.imgur.com/un6Ashc.png)
 
-![test2](http://i.imgur.com/jLxX0p2.png)
+![test](http://i.imgur.com/QuNbmeW.png)
+
+
